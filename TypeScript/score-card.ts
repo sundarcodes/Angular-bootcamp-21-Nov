@@ -40,8 +40,8 @@ export class ScoreCard {
     }
     printScoreCard() {
         console.log(`Total runs scored: ${this.totalRuns}`);
-        console.log(`Batsman 1 score: ${this.batsmen[0].runs()}`);
-        console.log(`Batsman 2 score: ${this.batsmen[1].runs()}`);
+        console.log(`${this.batsmen[0].name} score: ${this.batsmen[0].runs()}`);
+        console.log(`${this.batsmen[1].name} score: ${this.batsmen[1].runs()}`);
     }
 
 }
