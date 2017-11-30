@@ -1,4 +1,7 @@
 <div class="container">
+  <div id="create">
+      <button type="button" class="btn btn-info" (click)="gotoNewForm()">Add</button>
+  </div>
   <div class="row">
     <div class="col-md-4 col-xs-12 col-sm-6" *ngFor="let book of bookService.books">
       <app-book-card title="{{book.title}}" description="{{book.description}}"></app-book-card>
