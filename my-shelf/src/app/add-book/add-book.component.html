@@ -1,3 +1,22 @@
-<p>
-  add-book works!
-</p>
+<div class="container">
+  <form #addBookForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" aria-describedby="emailHelp" id="title" name="title" placeholder="Enter title"
+        required [(ngModel)]="bookTitle" #title="ngModel">
+      <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+        Title is required
+      </div>
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="title" aria-describedby="emailHelp" id="desc" name="desc" placeholder="Enter title"
+        required [(ngModel)]="bookDesc" #desc="ngModel">
+      <div [hidden]="desc.valid || desc.pristine" class="alert alert-danger">
+        Desc is required
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!addBookForm.form.valid">Submit</button>
+  </form>
+</div>
