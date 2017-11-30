@@ -1,6 +1,7 @@
 import { BooksService } from './core/services/books.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,9 +16,10 @@ import { BookCardComponent } from './book-card/book-card.component';
     BookCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
-  providers: [ BooksService ],
+  providers: [BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

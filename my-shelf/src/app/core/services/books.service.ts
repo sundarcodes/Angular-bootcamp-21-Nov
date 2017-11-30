@@ -1,45 +1,24 @@
 import { Book } from './../models/book';
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class BooksService {
 
   books: Book[];
-  constructor() {
-    let uniqueId = 1;
-    this.books = [
-      {
-        title: 'Refactoring',
-        description: 'Techinques to refactor your code',
-        id: uniqueId++
-      },
-      {
-        title: 'Functional Programming',
-        description: 'Practical introduction to functional programming',
-        id: uniqueId++
-      },
-      {
-        title: 'No SQL Distilled',
-        description: 'A brief guide to emerging world of polygot persistence',
-        id: uniqueId++
-      },
-      {
-        title: 'Redux',
-        description: 'A Cartoon introduction to Redux',
-        id: uniqueId++
-      },
-      {
-        title: 'Head First Design Patterns',
-        description: 'Your Brain on Design Patterns',
-        id: uniqueId++
-      },
-      {
-        title: 'Game Programming Patterns',
-        description: 'Design Patterns for Game development',
-        id: uniqueId++
-      }
-    ];
+  constructor(private httpService: Http) {
+    this.fetchAllReads();
+  }
 
+  fetchAllReads() {
+    // this.httpService.get('http://localhost:3000/api/index')
+    // .subscribe(function(rsp) {
+    //   // console.log(rsp.json());
+    //   console.log(this);
+    //   this.books = rsp.json();
+    // });
+    this.httpService.get('http://localhost:3000/api/index')
+    .subscribe( rsp => this.books = rsp.json());
   }
 
 }
