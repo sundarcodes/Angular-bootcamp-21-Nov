@@ -1,8 +1,8 @@
 <div class="card" style="width: 20rem;">
   <div class="card-body">
-    <h4 class="card-title">{{title}}</h4>
-    <p class="card-text">{{description}}</p>
-    <a href="#" class="card-link">Delete</a>
+    <h4 class="card-title">{{detail.title}}</h4>
+    <p class="card-text">{{detail.description}}</p>
+    <button (click)="deleteItem(detail.id)" class="btn btn-danger">Delete</button>
     <a href="#" class="card-link">Edit</a>
   </div>
 </div>

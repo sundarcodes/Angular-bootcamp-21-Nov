@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Book } from './../core/models/book';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-book-card',
@@ -7,12 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookCardComponent implements OnInit {
 
-  @Input() title: string;
-  @Input() description: string;
+  @Input() detail: Book;
+  @Output() deleteBook: EventEmitter<number>;
   constructor() {
+    this.deleteBook = new EventEmitter();
    }
 
   ngOnInit() {
+  }
+
+  deleteItem(id: number) {
+    this.deleteBook.emit(id);
   }
 
 }

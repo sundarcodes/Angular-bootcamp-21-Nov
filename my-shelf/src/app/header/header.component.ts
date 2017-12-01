@@ -1,3 +1,4 @@
+import { BooksService } from './../core/services/books.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public booksService: BooksService) { }
 
   ngOnInit() {
   }

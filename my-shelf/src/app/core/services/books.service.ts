@@ -11,6 +11,7 @@ export class BooksService {
   baseAPIURL: string;
   constructor(private httpService: Http) {
     this.baseAPIURL = 'http://localhost:3000/api';
+    this.books = [];
     this.fetchAllReads();
   }
 
@@ -33,6 +34,21 @@ export class BooksService {
     .do( rsp => {
       this.books.push(rsp.json());
     })
+  }
+
+  deleteBook(id: number) {
+    console.log('In service');
+    this.httpService.delete(`${this.baseAPIURL}/delete/${id}`)
+    .subscribe(rsp => {
+      const indexToBeDeleted = this.books.findIndex(book => book.id === id);
+      this.books.splice(indexToBeDeleted, 1);
+    });
+    console.log('After calling service');
+  }
+
+  getTotalBooksRead() {
+    console.log('Reading book length');
+    return this.books.length;
   }
 
 

@@ -20,4 +20,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/new']);
   }
 
+  deleteBook(id: number) {
+    console.log(`Got id ${id}`);
+    this.bookService.deleteBook(id);
+  }
+
 }
